@@ -2,15 +2,17 @@
 # vi: set ft=ruby :
 
 $script = <<-EOF
-sudo apt update; 
+sudo apt-get update
+sudo apt --fix-missing update
 sudo apt upgrade -y
-sudo apt install -y mc nginx nodejs npm
-git clone https://github.com/nathannmvr/MouraTech.git
-cd tutorial_react
-sudo npm install
-sudo npm run build
-sudo mkdir /var/www/html/tutorial_react
-sudo cp -r build/. /var/www/html/tutorial_react/
+sudo apt install -y mc nginx
+sudo apt install -y nodejs npm
+git clone https://github.com/nathannmvr/MouraTech
+cd ./MouraTech
+npm install
+npm run build
+sudo mkdir /var/www/html/MouraTech
+sudo cp -r build/. /var/www/html/MouraTech
 EOF
 
 Vagrant.configure("2") do |config|
